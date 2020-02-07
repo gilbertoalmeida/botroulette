@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import queryString from "query-string";
 import io from "socket.io-client";
 
+import "./Chat.css";
+
+import InfoBar from "../InfoBar/InfoBar";
+import ChatInput from "../ChatInput/ChatInput";
+import MessagesBox from "../MessagesBox/MessagesBox";
+
 let socket;
 
 const Chat = ({ location }) => {
@@ -33,6 +39,7 @@ const Chat = ({ location }) => {
     /* sending to the backend this emit called join with the user data */
     socket.emit("join", { name, room }, error => {
       if (error) {
+        /* this error includes when there is a repetitive username. Handle this better */
         alert(error);
       }
     });
@@ -67,12 +74,12 @@ const Chat = ({ location }) => {
   return (
     <div className="outerContainer">
       <div className="Container">
-        <input
-          value={message}
-          onChange={event => setMessage(event.target.value)}
-          onKeyPress={event =>
-            event.key === "Enter" ? sendMessage(event) : null
-          }
+        <InfoBar room={room} />
+        <MessagesBox messages={messages} name={name} />
+        <ChatInput
+          message={message}
+          sendMessage={sendMessage}
+          setMessage={setMessage}
         />
       </div>
     </div>
