@@ -60,15 +60,21 @@ io.on("connection", socket => {
   });
 });
 
+app.use(express.static(__dirname + "/client/build"));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
+/* 
 // Server static assets if inproduction
 //For building both backend and front end to heroku.
 if (process.env.NODE_ENV === "production") {
   //Set static folder
-  app.use(express.static("client/build"));
+  app.use(express.static(__dirname + "/client/build"));
 
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
-
+ */
 server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
