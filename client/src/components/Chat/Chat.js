@@ -16,7 +16,7 @@ const Chat = ({ location }) => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
-  const ENDPOINT = "https://lit-brushlands-08881.herokuapp.com/";
+  const ENDPOINT = "/";
 
   /* the Effect hook runs everytime the component is rendered. It is
   basically a mix of ComponentDidMount and ComponentDidUpdate */
