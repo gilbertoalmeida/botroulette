@@ -2,7 +2,6 @@ const express = require("express");
 const socketio = require("socket.io");
 const http = require("http");
 const cors = require("cors"); /* for the socket requests to work after deployment */
-const path = require("path");
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users.js");
 
@@ -11,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 const router = require("./router");
 
 const app = express();
-const server = http.Server(app);
+const server = http.createServer(app);
 const io = socketio(server);
 
 app.use(router);
@@ -59,15 +58,5 @@ io.on("connection", socket => {
     }
   });
 });
-
-// Serve static assets if we are in production
-if (process.env.NODE_ENV === "production") {
-  //Set static folder
-  app.use(express.static("client/build"));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
 
 server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
