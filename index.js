@@ -2,6 +2,7 @@ const express = require("express");
 const socketio = require("socket.io");
 const http = require("http");
 const cors = require("cors"); /* for the socket requests to work after deployment */
+const path = require("path");
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users.js");
 
@@ -58,5 +59,16 @@ io.on("connection", socket => {
     }
   });
 });
+
+// Server static assets if inproduction
+//For building both backend and front end to heroku.
+if (process.nextTick.NODE_ENV === "production") {
+  //Set static folder
+  app.use(express.static("client/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
