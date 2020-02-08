@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 const router = require("./router");
 
 const app = express();
-const server = http.createServer(app);
+const server = http.Server(app);
 const io = socketio(server);
 
 app.use(router);
@@ -60,21 +60,14 @@ io.on("connection", socket => {
   });
 });
 
-app.use(express.static(__dirname + "/client/build"));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
-/* 
-// Server static assets if inproduction
-//For building both backend and front end to heroku.
+// Serve static assets if we are in production
 if (process.env.NODE_ENV === "production") {
   //Set static folder
-  app.use(express.static(__dirname + "/client/build"));
+  app.use(express.static("client/build"));
 
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
- */
+
 server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
