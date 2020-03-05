@@ -74,8 +74,11 @@ const Chat = ({ location }) => {
   console.log(messages);
 
   return (
-    <div className="outerContainer">
-      <div className="Container">
+    <div className="screen-container">
+      <div className="screen-container__title">
+        <h1>botroulette</h1>
+      </div>
+      <div className="chat-container">
         <InfoBar room={room} />
         <MessagesBox messages={messages} name={name} />
         <ChatInput

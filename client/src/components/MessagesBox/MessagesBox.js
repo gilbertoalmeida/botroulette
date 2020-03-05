@@ -6,7 +6,7 @@ import SingleMessage from "../SingleMessage/SingleMessage";
 import "./MessagesBox.css";
 
 const MessagesBox = ({ messages, name }) => (
-  <ScrollToBottom className="messages">
+  <ScrollToBottom className="messages-container">
     {messages.map((message, i) => (
       <div key={i}>
         <SingleMessage message={message} name={name} />

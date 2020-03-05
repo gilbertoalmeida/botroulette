@@ -6,12 +6,16 @@ import onlineIcon from "../../icons/onlineIcon.png";
 import closeIcon from "../../icons/closeIcon.png";
 
 const InfoBar = ({ room }) => (
-  <div className="InfoBar">
-    <div className="leftInnerContainer">
-      <img className="onlineIcon" src={onlineIcon} alt="online icon" />
-      <h3>{room}</h3>
+  <div className="infobar-container">
+    <div className="infobar-container__room-name">
+      <img
+        className="infobar-container__room-name__online-icon"
+        src={onlineIcon}
+        alt="online icon"
+      />
+      <h3>'{room}'</h3>
     </div>
-    <div className="rightInnerContainer">
+    <div className="infobar-container__close-button">
       <a href="/">
         <img src={closeIcon} alt="close chat icon" />
       </a>
