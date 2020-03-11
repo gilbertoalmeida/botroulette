@@ -3,18 +3,25 @@ import React from "react";
 import "./ChatInput.css";
 
 const ChatInput = ({ message, setMessage, sendMessage }) => (
-  <form className="form">
+  <form className="send-message-form">
     <input
-      className="input"
+      className="send-message-form__input"
       type="text"
-      placeholder="Type a message..."
+      placeholder="Say something..."
       value={message}
       onChange={event => setMessage(event.target.value)}
       onKeyPress={event => (event.key === "Enter" ? sendMessage(event) : null)}
     />
-    <button className="sendButton" onClick={event => sendMessage(event)}>
-      Send
-    </button>
+    <div className="send-message-form__button-area">
+      {message && (
+        <button
+          className="send-message-form__button"
+          onClick={event => sendMessage(event)}
+        >
+          Send
+        </button>
+      )}
+    </div>
   </form>
 );
 

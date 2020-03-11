@@ -1,0 +1,75 @@
+.admin-message {
+  display: inline-block;
+  font-size: 0.85em;
+  color: #353535cc;
+  border-bottom: 1px solid #9e9d9d;
+  margin: 10px 0;
+}
+
+.single-message {
+  padding: 0 5%;
+  margin-top: 10px;
+}
+
+.single-message__text-box {
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: white;
+  display: inline-block;
+  max-width: 80%;
+  position: relative;
+}
+
+.messageText {
+  width: 100%;
+  letter-spacing: 0;
+  float: left;
+  font-size: 1em;
+  word-wrap: break-word;
+  position: relative;
+  top: 50%;
+}
+
+.messageText img {
+  vertical-align: middle;
+}
+
+.authorOfMessage {
+  font-family: Helvetica;
+  color: #828282;
+  letter-spacing: 0.5px;
+  font-size: 0.7em;
+  margin-top: -5px;
+}
+
+.pl-15 {
+  padding-left: 15px;
+}
+
+.pr-15 {
+  padding-right: 15px;
+}
+
+.justifyStart {
+  text-align: left;
+}
+
+.justifyEnd {
+  text-align: right;
+}
+
+.colorWhite {
+  color: white;
+}
+
+.colorDark {
+  color: #353535;
+}
+
+.backgroundPurple {
+  background: #46387d;
+}
+
+.backgroundLight {
+  background: #d9d4e4;
+}

@@ -1,0 +1,36 @@
+.send-message-form {
+  display: flex;
+}
+
+.send-message-form__input {
+  border: none;
+  border-radius: 0;
+  background-color: #cfcece;
+  padding: 3% 4%;
+  width: 80%;
+  font-size: 1em;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.send-message-form__button-area {
+  background: #cfcece;
+  width: 20%;
+  padding: 3% 4%;
+}
+
+.send-message-form__button {
+  display: inline-block;
+  color: #1b1764 !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.8em;
+  font-weight: bold;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
