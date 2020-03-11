@@ -6,21 +6,26 @@ import "./SingleMessage.css";
 
 const SingleMessage = ({ message, name }) => {
   let isSentByCurrentUser = false;
+  let isAdminMessage = false;
 
   const trimmedName = name.trim().toLowerCase();
 
-  if (message.user === trimmedName) {
+  if (message.user === "admin") {
+    isAdminMessage = true;
+  } else if (message.user === trimmedName) {
     isSentByCurrentUser = true;
   }
 
-  return isSentByCurrentUser ? (
+  return isAdminMessage ? (
+    <div className="admin-message">{message.text}</div>
+  ) : isSentByCurrentUser ? (
     <div className="single-message justifyEnd">
-      <p className="sentText pr-10">{trimmedName}</p>
-      <div className="single-message__text-box backgroundBlue">
+      <div className="single-message__text-box backgroundPurple">
         <div className="messageText colorWhite">
           {ReactEmogi.emojify(message.text)}
         </div>
       </div>
+      <div className="authorOfMessage pr-15">{trimmedName}</div>
     </div>
   ) : (
     <div className="single-message justifyStart">
@@ -29,7 +34,7 @@ const SingleMessage = ({ message, name }) => {
           {ReactEmogi.emojify(message.text)}
         </div>
       </div>
-      <p className="sentText pl-10">{message.user}</p>
+      <div className="authorOfMessage pl-15">{message.user}</div>
     </div>
   );
 };
