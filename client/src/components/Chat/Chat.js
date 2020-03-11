@@ -70,9 +70,6 @@ const Chat = ({ location }) => {
     }
   };
 
-  console.log("messages");
-  console.log(messages);
-
   return (
     <div className="screen-container">
       <div className="screen-container__title">
