@@ -8,13 +8,16 @@ const Join = () => {
   const [room, setRoom] = useState("");
 
   return (
-    <div className="joinOuterContainer">
-      <div className="joinInnerContainer">
-        <h1 className="heading">Join</h1>
+    <div className="screen-container">
+      <div className="screen-container__title">
+        <h1>botroulette</h1>
+      </div>
+      <div className="join-container">
+        <h1 className="join-container__title">Join a room</h1>
         <div>
           <input
-            placeholder="Name"
-            className="joinInput"
+            placeholder="your nickname"
+            className="join-container__input"
             type="text"
             onChange={event => setName(event.target.value)}
           />
@@ -22,8 +25,8 @@ const Join = () => {
         <div>
           {/* mt-20 is margin-top20 */}
           <input
-            placeholder="Room"
-            className="joinInput mt-20"
+            placeholder="room name"
+            className="join-container__input mt-20"
             type="text"
             onChange={event => setRoom(event.target.value)}
           />
@@ -33,10 +36,10 @@ const Join = () => {
         <Link to={`/chat?name=${name}&room=${room}`}>
           <button
             onClick={event => (!name || !room ? event.preventDefault() : null)}
-            className="button mt-20"
+            className="join-container__button mt-20"
             type="submit"
           >
-            Sign In
+            Get in
           </button>
         </Link>
       </div>

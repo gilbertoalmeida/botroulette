@@ -16,7 +16,9 @@ const Chat = ({ location }) => {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
+  /* define for production or dev */
   const ENDPOINT = "localhost:5000";
+  /* const ENDPOINT = "https://lit-brushlands-08881.herokuapp.com/"; */
 
   /* the Effect hook runs everytime the component is rendered. It is
   basically a mix of ComponentDidMount and ComponentDidUpdate */
@@ -68,12 +70,12 @@ const Chat = ({ location }) => {
     }
   };
 
-  console.log("messages");
-  console.log(messages);
-
   return (
-    <div className="outerContainer">
-      <div className="Container">
+    <div className="screen-container">
+      <div className="screen-container__title">
+        <h1>botroulette</h1>
+      </div>
+      <div className="chat-container">
         <InfoBar room={room} />
         <MessagesBox messages={messages} name={name} />
         <ChatInput
