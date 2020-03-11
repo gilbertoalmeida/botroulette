@@ -45,13 +45,6 @@ const Chat = ({ location }) => {
         alert(error);
       }
     });
-
-    /* this is the componentDidUnmount of the effect */
-    return () => {
-      socket.emit("disconnect");
-
-      socket.off();
-    };
   }, [ENDPOINT, location.search]);
   /* this array in the end of the Effect specifies when the effect is called.
   Just when these variables change */
@@ -60,6 +53,13 @@ const Chat = ({ location }) => {
     socket.on("message", message => {
       setMessages([...messages, message]);
     });
+
+    /* this is the componentDidUnmount of the effect */
+    return () => {
+      socket.emit("disconnect");
+
+      socket.off();
+    };
   }, [messages]);
 
   const sendMessage = event => {
