@@ -16,7 +16,7 @@ def create_table():
     c.execute("CREATE TABLE IF NOT EXISTS parent_reply(parent_id TEXT PRIMARY KEY, comment_id TEXT UNIQUE, parent TEXT, comment TEXT, subreddit TEXT, unix INT, score INT)")
 
 def format_data(data):
-    data = data.replace('\n',' newlinechar ').replace('\r',' newlinechar ').replace('"',"'")
+    data = data.replace('\n',' ').replace('\r',' ').replace('"',"'")
     return data
 
 def transaction_bldr(sql):
