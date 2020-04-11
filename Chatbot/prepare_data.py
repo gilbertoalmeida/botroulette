@@ -4,7 +4,7 @@ import json
 from datetime import datetime
 import time
 
-timeframe = '2007-12'
+timeframe = '2008-12'
 sql_transaction = []
 start_row = 0
 cleanup = 1000000
@@ -95,7 +95,7 @@ if __name__ == '__main__':
     paired_rows = 0
 
     #with open('J:/chatdata/reddit_data/{}/RC_{}'.format(timeframe.split('-')[0],timeframe), buffering=1000) as f:
-    with open('/Users/sonakochkanyan/Documents/chat/reddit/RC_{}'.format(timeframe), buffering=1000) as f:
+    with open('/Users/sonakochkanyan/Documents/BOT/RC_{}'.format(timeframe), buffering=1000) as f:
         for row in f:
             #print(row)
             #time.sleep(555)

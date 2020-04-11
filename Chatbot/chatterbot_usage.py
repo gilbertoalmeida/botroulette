@@ -1,6 +1,6 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
-
+import numpy as np
 
 # Create a new instance of a ChatBot
 bot = ChatBot(
@@ -17,14 +17,11 @@ bot = ChatBot(
 
 trainer = ListTrainer(bot)
 
+
+
+
+
 # Train the chat bot with a few responses
-trainer.train([
-    'How can I help you?',
-    'I want to create a chat bot',
-    'Have you read the documentation?',
-    'No, I have not',
-    'This should help get you started: http://chatterbot.rtfd.org/en/latest/quickstart.html'
-])
 
 # Get a response for some unexpected input
 response = bot.get_response('Hi')
@@ -40,6 +37,15 @@ trainer.train(
 )
 trainer.train(
     "chatterbot.corpus.english.greetings",
-    "chatterbot.corpus.english.conversations"
+    "chatterbot.corpus.english.conversations",
+    "chatterbot.corpus.english.food",
+#    "chatterbot.corpus.english.trivia",
+    "chatterbot.corpus.english.humor",
+    "chatterbot.corpus.english.emotion",
+    "chatterbot.corpus.english.history",
+    "chatterbot.corpus.english.psychology",
+    "chatterbot.corpus.english.money"
 )
-chatbot.get_response('how much money do you have?')
+#trainer.train(df1)
+
+chatbot.get_response('are you hungry?')
